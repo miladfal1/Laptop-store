@@ -1,0 +1,19 @@
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:07:39.436Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:07:40.279Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:09:31.254Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:09:31.432Z"}
+{"deletedCount":0,"level":"info","message":"Cron Job: Removed expired blocked IPs","timestamp":"2024-12-09T02:10:00.545Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:10:58.576Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:10:58.905Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:13:01.217Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:13:01.396Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:14:44.314Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:14:44.486Z"}
+{"deletedCount":0,"level":"info","message":"Cron Job: Removed expired blocked IPs","timestamp":"2024-12-09T02:15:00.466Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:16:24.161Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:16:24.322Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:18:20.189Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:18:20.419Z"}
+{"deletedCount":0,"level":"info","message":"Cron Job: Removed expired blocked IPs","timestamp":"2024-12-09T02:20:00.019Z"}
+{"level":"info","message":"Helmet configured for production environment.","timestamp":"2024-12-09T02:20:07.030Z"}
+{"level":"info","message":"Connected to DB successfully.","timestamp":"2024-12-09T02:20:07.197Z"}

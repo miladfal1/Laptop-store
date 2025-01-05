@@ -1,0 +1,266 @@
+@media (max-width: 768px) {
+  body {
+    font-family: "vazir";
+    background-color: #f2f3f5;
+    overflow-x: hidden;
+  }
+  body,
+  html {
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+  }
+
+  main {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /****** head ******/
+  .login-container,
+  .categories-container {
+    display: none;
+  }
+
+  .head-container {
+    text-align: center;
+    height: 60px;
+    position: relative;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px 1px #e1e1e1;
+  }
+
+  .logo {
+    height: 50px;
+    width: 20%; /* لوگو بزرگتر برای تطابق با عرض صفحه موبایل */
+    display: block;
+    margin: 5px auto;
+  }
+
+  .logo img {
+    width: 100%;
+  }
+
+  .cart-icon-container i {
+    font-size: 1.2rem; /* کوچک‌تر کردن آیکون سبد خرید برای موبایل */
+    color: #333;
+  }
+
+  #cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 0.6rem;
+  }
+
+  /*********** res menu *********/
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 10%;
+    font-size: 40px;
+    z-index: 1000;
+  }
+
+  .responsive-menu {
+    display: block;
+    width: 70%;
+    min-height: 600px;
+    height: min-content;
+    position: fixed; /* از absolute به fixed تغییر می‌دهیم تا مستقل از محتوا باشد */
+    background-color: #ffffff;
+    right: -100%; /* مخفی کردن منو به طور کامل */
+    top: 75px;
+    transition: right 0.3s ease; /* انیمیشن برای جابجایی نرم */
+    z-index: 1000;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی در خود منو */
+  }
+
+  /* اضافه کردن یک کلاس برای زمانی که منو باز است */
+  .menu-open .responsive-menu {
+    right: 0; /* زمانی که منو باز است */
+  }
+
+  .res-login-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #253e55;
+  }
+  .login-header,
+  .signup-header {
+    font-size: 16px;
+    color: #d9d9d9;
+    text-decoration: none;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 5px 8px;
+    font-weight: 900;
+    width: 50%;
+    text-align: center;
+    border-radius: 0;
+  }
+  .res-categories-container {
+    text-align: right;
+    display: grid;
+    width: 100%;
+  }
+
+  ul.res-categories-list {
+    width: 100%;
+    display: contents;
+  }
+  .category-item {
+    margin: 5px;
+    display: flex;
+    width: 100%;
+    min-height: 60px;
+    text-align: center;
+    height: auto;
+    padding: 5px;
+    border-bottom: 1px solid #dedede;
+    border-left: navajowhite;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  a.menu-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;
+  }
+
+  /*********** slider *********/
+  .slider-container {
+    margin-top: 10px;
+  }
+  .swiper-container {
+    height: 215px;
+  }
+
+  .swiper-container img {
+    height: auto !important;
+  }
+  .slider-container {
+    width: 100%; /* اطمینان از پر کردن کامل عرض صفحه */
+    overflow: hidden; /* جلوگیری از اسکرول افقی */
+  }
+
+  .swiper-container {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    width: auto; /* به هر اسلاید اجازه می‌دهد عرض مناسب خود را بگیرد */
+    max-width: 100%; /* جلوگیری از افزایش عرض بیش از اندازه */
+  }
+
+  .category-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /********** discounted items *************/
+
+  .discounted-items-container h4 {
+    margin: 0 auto;
+    color: #333;
+    display: block;
+    padding: 20px 0;
+    width: 50%;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  /********** discounted items *************/
+  .latest-items-container h4 {
+    margin: 0 auto;
+    color: #333;
+    display: block;
+    padding: 20px 0;
+    width: 40%;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .latest-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    text-align: center;
+    align-content: center;
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  .latest-item-card {
+    width: 40%;
+    float: right;
+    padding: 20px;
+    box-shadow: 1px 1px 1px 1px #d8d8d8;
+  }
+
+  /************ order page ************/
+
+  .order-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    background-color: white;
+  }
+  form#order-form {
+    height: auto;
+    background-color: white;
+    margin: 2px;
+    padding: 5px 2px;
+    box-sizing: border-box;
+    display: flow-root;
+  }
+
+  #order-items-list {
+    list-style: none;
+    padding: 0;
+    float: right;
+    width: 96%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0px;
+  }
+
+  span.order-count {
+    position: absolute;
+    left: 65%;
+    bottom: 15px;
+    text-align: right;
+  }
+  div#total-amount {
+    width: 60%;
+    background-color: #e8e8e8;
+    padding: 10px;
+    border-radius: 4px;
+    height: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  button#submit {
+    width: 40%;
+    border: 1px solid #3cb93c;
+    font-family: "vazir";
+    background-color: #3cb93c;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+  }
+}

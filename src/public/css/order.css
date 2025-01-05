@@ -1,0 +1,157 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  background-color: white;
+}
+
+form#order-form {
+  height: auto;
+  background-color: white;
+  margin: 10px;
+  padding: 25px 10px;
+  box-sizing: border-box;
+  display: flow-root;
+}
+
+#order-items-list {
+  list-style: none;
+  padding: 0;
+  float: right;
+  width: 60%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+span.order-count {
+  position: absolute;
+  left: 25%;
+  bottom: 15px;
+  text-align: right;
+}
+
+span.order-sum {
+  position: absolute;
+  left: 30px;
+  bottom: 15px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  height: 200px;
+  box-shadow: 3px 3px 3px 3px #e1e0e0;
+  position: relative;
+  border-radius: 5px;
+}
+.item-img {
+  border-radius: 10px;
+  object-fit: cover;
+  position: absolute;
+  right: 5px;
+  top: 5%;
+  height: 90%;
+  width: auto;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  position: absolute;
+  color: #4a4a4a;
+  right: 30%;
+  top: 10%;
+}
+
+.item-recipe {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+  position: absolute;
+  right: 30%;
+  top: 21%;
+}
+.item-price {
+  font-size: 16px;
+  color: #2c2c2c;
+  margin-bottom: 5px;
+  text-align: right;
+  position: absolute;
+  right: 30%;
+  bottom: 10%;
+}
+
+.item-qty {
+  font-size: 18px;
+  color: #333;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+
+button#submit {
+  width: 140px;
+  border: none;
+  font-family: "vazir";
+  background-color: #009300;
+  color: white;
+  padding: 10px;
+}
+
+span.order-image {
+  width: 20%;
+  position: absolute;
+  display: block;
+  right: 20px;
+  top: 15%;
+}
+
+span.order-image img {
+  width: 100%;
+}
+
+span.order-name {
+  display: block;
+  position: absolute;
+  right: 30%;
+  top: 15%;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+span.order-price {
+  display: block;
+  position: absolute;
+  right: 30%;
+  font-size: 17px;
+}
+
+div#total-amount {
+  width: 15%;
+  background-color: #e8e8e8;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+button#submit {
+  width: 15%;
+  border: 1px solid #3cb93c;
+  font-family: "vazir";
+  background-color: #3cb93c;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}

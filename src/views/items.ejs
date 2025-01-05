@@ -1,0 +1,21 @@
+<!-- items.ejs -->
+<%- include('partials/header') %>
+
+<div class="latest-items-container">
+  <h4><%= cat.name %></h4>
+  <div class="latest-items">
+    <% items.forEach(function(item) { %>
+    <div class="latest-item-card">
+      <img src="<%= item.img %>" alt="<%= item.name %>" class="item-image" />
+      <div class="item-info">
+        <p><%= item.name %></p>
+        <p>قیمت: <%= item.price %> تومان</p>
+        <button class="add-to-cart-btn" data-name="<%= item.name %>" data-price="<%= item.price %>">
+          افزودن به سبد خرید
+        </button>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+<%- include('partials/footer') %>

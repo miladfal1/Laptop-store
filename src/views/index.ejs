@@ -1,0 +1,91 @@
+<%- include('partials/header') %>
+
+<div class="slider-container">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% categories.forEach(function(category) { %> <% if (category.img) { %>
+      <div class="swiper-slide">
+        <img src="<%= category.img %>" alt="<%= category.name %>" class="category-image" />
+      </div>
+      <% } %> <% }); %>
+    </div>
+    <div class="swiper-pagination swiper-control"></div>
+    <div class="swiper-button-next swiper-control"></div>
+    <div class="swiper-button-prev swiper-control"></div>
+  </div>
+</div>
+
+<div class="discounted-items-container">
+  <h4>پیشنهاد شگفت انگیز</h4>
+  <div class="discounted-items">
+    <% discountedLaptops.forEach(function(item) { %>
+    <div class="discounted-item-card">
+      <img src="<%= item.img %>" alt="<%= item.name %>" class="item-image" />
+      <div class="item-info">
+        <p><%= item.name %></p>
+        <p class="price">
+          <div class="original-price price"><%= item.price %></div>
+          <div class="discount-price price"><%= item.discountPrice %></div> تومان
+        </p>
+        <button class="add-to-cart-btn" data-name="<%= item.name %>" data-price="<%= item.discountPrice %>">
+          افزودن به سبد خرید
+        </button>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+<div class="latest-items-container">
+  <h4>آخرین آیتم‌های اضافه شده</h4>
+  <div class="latest-items">
+    <% items.forEach(function(item) { %>
+    <div class="latest-item-card">
+      <img src="<%= item.img %>" alt="<%= item.name %>" class="item-image" />
+      <div class="item-info">
+        <p><%= item.name %></p>
+        <p class="price">قیمت: <%= item.price %> تومان</p>
+        <button class="add-to-cart-btn" data-name="<%= item.name %>" data-price="<%= item.price %>">
+          افزودن به سبد خرید
+        </button>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const categoryItems = document.querySelectorAll(".category-item");
+    const itemsList = document.getElementById("items-list");
+    const searchBar = document.getElementById("search-bar");
+    const cartCount = document.getElementById("cart-count");
+    const itemsData = <%- JSON.stringify(items) %>;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateCartCount() {
+      cartCount.textContent = cart.length;
+    }
+
+    function saveCart() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function addToCart(item) {
+      cart.push({
+        name: item.name,
+        price: item.price,
+        img: item.img
+      });
+      saveCart();
+      updateCartCount();
+    }
+
+
+    displayItems(itemsData);
+    updateCartCount();
+  });
+</script>

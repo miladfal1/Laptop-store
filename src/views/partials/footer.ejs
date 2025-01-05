@@ -1,0 +1,95 @@
+<div class="footer-container">
+  <div class="social-links">
+    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+  
+  <div class="copyright">
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+  </div>
+</div>
+
+
+</main>
+
+<footer>
+    <script src="/js/order.js"></script>
+    <script src="/js/formValidation.js"></script>
+    <script src="/js/token.js"></script>
+    <script src="/js/admin.js"></script>
+
+    <script>
+        const cartCount = document.getElementById("cart-count");
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      
+        // به‌روزرسانی تعداد آیتم‌های سبد خرید
+        function updateCartCount() {
+          cartCount.textContent = cart.length;
+        }
+      
+        // ذخیره سبد خرید در LocalStorage
+        function saveCart() {
+          localStorage.setItem("cart", JSON.stringify(cart)); 
+        }
+      
+        // افزودن آیتم به سبد خرید
+        function addToCart(item) {
+          cart.push({
+            name: item.name,
+            price: item.price,
+            img: item.img  // اضافه کردن مسیر تصویر به cart
+          });
+          saveCart();
+          updateCartCount();
+        }
+
+        const addToCartBtns = document.querySelectorAll(".add-to-cart-btn");
+      
+        addToCartBtns.forEach((button) => {
+          button.addEventListener("click", function () {
+            const item = {
+              name: this.dataset.name,
+              price: parseFloat(this.dataset.price),  // تبدیل قیمت به عدد
+              img: this.closest('.latest-item-card').querySelector('img').getAttribute('src')  // گرفتن مسیر تصویر
+            };
+            addToCart(item);
+          });
+        });
+      
+        updateCartCount();
+        
+      </script>
+      <script>
+        var swiper = new Swiper(".swiper-container", {
+          loop: false,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          autoplay: {
+            delay: 3000,
+          },
+        });
+
+            // اضافه کردن event listener برای کلیک روی هر دسته‌بندی
+        categoryItems.forEach((categoryItem) => {
+          categoryItem.addEventListener("click", function () {
+            const categoryName = this.dataset.categoryName;
+            const filteredItems = itemsData.filter((item) => item.category === categoryName);
+            displayItems(filteredItems);
+          });
+        });
+        
+
+      </script>
+     
+      
+
+</footer>
+</body>

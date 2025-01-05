@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div class="container" style="text-align: center">
+      <div class="res-container" style="text-align: center">
+
+
+    <form action="/adminlogin" method="post">
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username">
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password">
+        <div><%= error %></div>
+
+        <button type="submit">Login</button>
+    </form>
+    
+    </div>
+  </body>
+</html>

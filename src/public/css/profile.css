@@ -1,0 +1,21 @@
+/********** profile  *************/
+
+.profile-container,
+.midder {
+  display: flex;
+  flex-direction: column; 
+  min-height: 500px;
+  background-color: white;
+}
+
+.profile-info-container {
+  text-align: right;
+}
+
+section#my-info {
+  float: right;
+  margin: 30px;
+  font-size: 18px;
+  background-color: #e0e0e0;
+  padding: 10px;
+}

@@ -1,0 +1,126 @@
+<%- include('partials/header') %>
+
+<div class="profile-container">
+  <div class="profile-info-container">
+    <section class="order-info-title">
+      <h2>سفارش‌ها</h2>
+    </section>
+
+    <section class="account-orders">
+      <% if (orders.length > 0) { %> <% orders.forEach(order => { %>
+      <div class="order-card">
+        <h3><%= order.orderNumber %> شماره سفارش</h3>
+        <h5><% if (order.status) { %> پرداخت شده <% } else { %> پرداخت نشده <% } %></h5>
+        <!-- شماره سفارش با فرمت ORD و 6 رقم آخر -->
+        <p>
+          جمع کل:
+          <strong> <%= order.orderPrice ? order.orderPrice.toLocaleString() : "نامشخص" %> تومان </strong>
+        </p>
+        <div class="order-items">
+          <% order.order.forEach(item => { %>
+          <div class="order-item">
+            <img src="<%= item.img %>" alt="<%= item.name %>" class="order-item-image" />
+            <div class="order-item-details">
+              <p class="order-item-name"><%= item.name %></p>
+              <p>تعداد: <%= item.qty %></p>
+              <p>قیمت: <%= item.price.toLocaleString() %> تومان</p>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+      <% }); %> <% } else { %>
+      <p>شما هنوز سفارشی ندارید.</p>
+      <% } %>
+    </section>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
+
+<style>
+  .profile-container {
+    max-width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  .profile-info-container {
+    margin-bottom: 40px;
+  }
+
+  .account-info {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .order-info-title h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .account-orders {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+
+  .order-card {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .order-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .order-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .order-item {
+    display: flex;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .order-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .order-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .order-item-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .order-item-details p {
+    margin: 0;
+  }
+
+  .order-item-details p:last-child {
+    font-size: 14px;
+    color: #555;
+  }
+</style>

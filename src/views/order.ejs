@@ -1,0 +1,94 @@
+<%- include('partials/header') %>
+
+<div class="order-container">
+  <form id="order-form" action="/order" method="POST">
+    <div id="order-items-list"></div>
+
+    <div id="total-amount" class="price"></div>
+
+    <input type="hidden" id="orderPrice" name="amount" value="" />
+
+    <button type="submit" id="submit">ثبت سفارش</button>
+  </form>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderItemsList = document.getElementById("order-items-list");
+    const totalAmount = document.getElementById("total-amount");
+    const orderPriceInput = document.getElementById("orderPrice");
+    const orderForm = document.getElementById("order-form");
+
+    function renderCart() {
+      orderItemsList.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const qty = item.qty ? item.qty : 1;
+        const price = parseFloat(item.price) || 0;
+
+        const itemTotal = price * qty;
+        total += itemTotal;
+
+        const itemFields = document.createElement("div");
+        itemFields.classList.add("order-item");
+        itemFields.innerHTML = `
+          <input type="hidden" name="order[${index}][img]" value="${item.img}">
+          <input type="hidden" name="order[${index}][name]" value="${item.name}">
+          <input type="hidden" name="order[${index}][qty]" value="${qty}">
+          <input type="hidden" name="order[${index}][price]" value="${price}">
+          <div>
+            <span class="order-image"><img src="${item.img}" class="item-image" alt="${item.name}" /></span>
+            <span class="order-name">${item.name}</span>
+            <span class="order-price price">${price} تومان</span>
+            <span class="order-count">
+              <button type="button" class="decrease-qty" data-index="${index}">-</button>
+              <span>${qty}</span>
+              <button type="button" class="increase-qty" data-index="${index}">+</button>
+              تعداد
+            </span>
+            <span class="order-sum price">جمع: ${itemTotal} تومان</span>
+          </div>
+        `;
+
+        orderItemsList.appendChild(itemFields);
+      });
+
+      totalAmount.textContent = `جمع کل: ${total.toLocaleString()} تومان`;
+      orderPriceInput.value = total;
+    }
+
+    function saveCart() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    orderItemsList.addEventListener("click", function (e) {
+      if (e.target.classList.contains("increase-qty")) {
+        const index = e.target.dataset.index;
+        cart[index].qty = (cart[index].qty || 1) + 1;
+        saveCart();
+        renderCart();
+      }
+
+      if (e.target.classList.contains("decrease-qty")) {
+        const index = e.target.dataset.index;
+        if (cart[index].qty > 1) {
+          cart[index].qty--;
+        } else {
+          cart.splice(index, 1);
+        }
+        saveCart();
+        renderCart();
+      }
+    });
+
+    orderForm.addEventListener("submit", function () {
+      localStorage.removeItem("cart"); // خالی کردن سبد خرید
+    });
+
+    renderCart();
+  });
+</script>
+
+<%- include('partials/footer') %>
